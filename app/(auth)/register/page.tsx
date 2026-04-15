@@ -34,11 +34,7 @@ export default function RegisterPage() {
     setServerError(null);
     setIsLoading(true);
     try {
-      const formData = new FormData();
-      formData.set("email", values.email);
-      formData.set("password", values.password);
-      formData.set("username", values.username);
-      const result = await registerAction(formData);
+      const result = await registerAction(values);
       if (result?.error) {
         setServerError(result.error);
       }
