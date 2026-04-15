@@ -113,7 +113,25 @@ NEXT_PUBLIC_ADMIN_EMAIL=            # Email account admin iniziale
 
 ---
 
-## Phase 2 — Integrazione Phaser.js
+## Phase 2 — Home page e navigazione
+
+**Obiettivo:** Landing page, dashboard livelli e navbar con avatar utente.
+
+### Task
+
+- [x] Creare `components/layout/Navbar.tsx` con logo CivicHero, link navigazione, avatar utente + dropdown logout
+- [x] Creare `components/layout/UserMenu.tsx` (client component per dropdown avatar)
+- [x] Creare `components/layout/Footer.tsx` minimale
+- [x] Creare route group `app/(main)/` con layout che include Navbar e Footer
+- [x] Creare `app/(main)/page.tsx` — landing page con hero section, presentazione gioco, CTA "Inizia a giocare" → /register
+- [x] Creare `app/(main)/dashboard/page.tsx` — griglia 6 livelli con stato (disponibile/completato), punteggio e badge
+- [x] Responsive: mobile first, funziona su tablet e desktop
+
+**Verifica:** La home mostra hero section con CTA. La dashboard mostra i 6 livelli con stato e punteggi reali da Supabase. La navbar cambia tra stato guest (login/register) e autenticato (avatar + dropdown logout).
+
+---
+
+## Phase 3 — Integrazione Phaser.js
 
 **Obiettivo:** Phaser.js integrato in Next.js, canvas di gioco funzionante su desktop e mobile.
 
@@ -304,15 +322,16 @@ NEXT_PUBLIC_ADMIN_EMAIL=            # Email account admin iniziale
 | Fase | Obiettivo | Stato | Note |
 |---|---|---|---|
 | Phase 0 | Setup progetto | `[~]` | Supabase project + Vercel deploy da configurare manualmente |
-| Phase 1 | Autenticazione | `[ ]` | Dipende da Phase 0 |
-| Phase 2 | Integrazione Phaser.js | `[ ]` | Dipende da Phase 1 |
-| Phase 3 | Tutorial Level | `[ ]` | Dipende da Phase 2 |
-| Phase 4 | Livelli 1-3 | `[ ]` | Dipende da Phase 3 |
-| Phase 5 | Livelli 4-5 | `[ ]` | Dipende da Phase 4 |
-| Phase 6 | Punteggio + Leaderboard | `[ ]` | Dipende da Phase 2 |
-| Phase 7 | Profilo + Badge | `[ ]` | Dipende da Phase 6 |
-| Phase 8 | Admin Panel | `[ ]` | Dipende da Phase 7 |
-| Phase 9 | Email + Audio | `[ ]` | Dipende da Phase 7 |
+| Phase 1 | Autenticazione | `[~]` | Reset password e guest mode ancora da completare |
+| Phase 2 | Home page e navigazione | `[x]` | Completato — navbar, home, dashboard livelli |
+| Phase 3 | Integrazione Phaser.js | `[ ]` | Dipende da Phase 1 |
+| Phase 4 | Tutorial Level | `[ ]` | Dipende da Phase 3 |
+| Phase 5 | Livelli 1-3 | `[ ]` | Dipende da Phase 4 |
+| Phase 6 | Livelli 4-5 | `[ ]` | Dipende da Phase 5 |
+| Phase 7 | Punteggio + Leaderboard | `[ ]` | Dipende da Phase 3 |
+| Phase 8 | Profilo + Badge | `[ ]` | Dipende da Phase 7 |
+| Phase 9 | Admin Panel | `[ ]` | Dipende da Phase 8 |
+| Phase 10 | Email + Audio | `[ ]` | Dipende da Phase 8 |
 
 ---
 
