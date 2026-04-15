@@ -1,6 +1,7 @@
 "use client";
 
-import { useActionState, Suspense } from "react";
+import { useFormState, useFormStatus } from "react-dom";
+import { Suspense } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { login } from "@/app/actions/auth";
@@ -16,10 +17,23 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
+function SubmitButton() {
+  const { pending } = useFormStatus();
+  return (
+    <Button
+      type="submit"
+      disabled={pending}
+      className="w-full bg-[#FFD700] hover:bg-[#FFD700]/90 text-[#003087] font-bold"
+    >
+      {pending ? "Accesso in corso..." : "Accedi"}
+    </Button>
+  );
+}
+
 function LoginForm() {
   const searchParams = useSearchParams();
   const registered = searchParams.get("registered");
-  const [state, action, isPending] = useActionState(login, null);
+  const [state, action] = useFormState(login, null);
 
   return (
     <Card className="bg-white/10 border-white/20 text-white backdrop-blur-sm">
@@ -65,13 +79,7 @@ function LoginForm() {
               className="bg-white/10 border-white/30 text-white placeholder:text-blue-300 focus:border-[#FFD700] focus:ring-[#FFD700]/20"
             />
           </div>
-          <Button
-            type="submit"
-            disabled={isPending}
-            className="w-full bg-[#FFD700] hover:bg-[#FFD700]/90 text-[#003087] font-bold"
-          >
-            {isPending ? "Accesso in corso..." : "Accedi"}
-          </Button>
+          <SubmitButton />
         </form>
       </CardContent>
       <CardFooter className="flex flex-col gap-2 text-center text-sm text-blue-200">

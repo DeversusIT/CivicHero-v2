@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState } from "react";
+import { useFormState, useFormStatus } from "react-dom";
 import Link from "next/link";
 import { register as registerAction } from "@/app/actions/auth";
 import { Button } from "@/components/ui/button";
@@ -15,8 +15,21 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
+function SubmitButton() {
+  const { pending } = useFormStatus();
+  return (
+    <Button
+      type="submit"
+      disabled={pending}
+      className="w-full bg-[#FFD700] hover:bg-[#FFD700]/90 text-[#003087] font-bold"
+    >
+      {pending ? "Registrazione in corso..." : "Crea account"}
+    </Button>
+  );
+}
+
 export default function RegisterPage() {
-  const [state, action, isPending] = useActionState(registerAction, null);
+  const [state, action] = useFormState(registerAction, null);
 
   return (
     <Card className="bg-white/10 border-white/20 text-white backdrop-blur-sm">
@@ -72,13 +85,7 @@ export default function RegisterPage() {
             />
             <p className="text-blue-300 text-xs">Minimo 6 caratteri</p>
           </div>
-          <Button
-            type="submit"
-            disabled={isPending}
-            className="w-full bg-[#FFD700] hover:bg-[#FFD700]/90 text-[#003087] font-bold"
-          >
-            {isPending ? "Registrazione in corso..." : "Crea account"}
-          </Button>
+          <SubmitButton />
         </form>
       </CardContent>
       <CardFooter className="text-center text-sm text-blue-200">
