@@ -34,7 +34,11 @@ export default function RegisterPage() {
     setServerError(null);
     setIsLoading(true);
     try {
-      const result = await registerAction(values);
+      const formData = new FormData();
+      formData.append("email", values.email);
+      formData.append("password", values.password);
+      formData.append("username", values.username);
+      const result = await registerAction(formData);
       if (result?.error) {
         setServerError(result.error);
       }
