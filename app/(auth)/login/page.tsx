@@ -38,10 +38,7 @@ function LoginForm() {
     setServerError(null);
     setIsLoading(true);
     try {
-      const formData = new FormData();
-      formData.append("email", values.email);
-      formData.append("password", values.password);
-      const result = await login(formData);
+      const result = await login(values.email, values.password);
       if (result?.error) {
         setServerError(result.error);
       }
@@ -71,9 +68,7 @@ function LoginForm() {
         )}
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           <div className="space-y-2">
-            <Label htmlFor="email" className="text-blue-100">
-              Email
-            </Label>
+            <Label htmlFor="email" className="text-blue-100">Email</Label>
             <Input
               id="email"
               type="email"
@@ -87,9 +82,7 @@ function LoginForm() {
             )}
           </div>
           <div className="space-y-2">
-            <Label htmlFor="password" className="text-blue-100">
-              Password
-            </Label>
+            <Label htmlFor="password" className="text-blue-100">Password</Label>
             <Input
               id="password"
               type="password"
@@ -114,10 +107,7 @@ function LoginForm() {
       <CardFooter className="flex flex-col gap-2 text-center text-sm text-blue-200">
         <p>
           Non hai un account?{" "}
-          <Link
-            href="/register"
-            className="text-[#FFD700] hover:underline font-medium"
-          >
+          <Link href="/register" className="text-[#FFD700] hover:underline font-medium">
             Registrati
           </Link>
         </p>
