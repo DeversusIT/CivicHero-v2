@@ -72,17 +72,17 @@ NEXT_PUBLIC_ADMIN_EMAIL=            # Email account admin iniziale
 
 ### Task
 
-- [ ] Inizializzare progetto Next.js 14 con TypeScript: `npx create-next-app@latest civichero --typescript --tailwind --eslint --app`
-- [ ] Installare dipendenze: `phaser`, `@supabase/supabase-js`, `@supabase/ssr`, `resend`, `howler`, `zustand`, `zod`, `react-hook-form`, `@hookform/resolvers`
-- [ ] Installare shadcn/ui e componenti base: `button`, `input`, `label`, `card`, `dialog`, `badge`, `avatar`, `table`, `dropdown-menu`
-- [ ] Configurare Tailwind CSS (colori brand CivicHero: blu istituzionale #003087, accento giallo #FFD700)
-- [ ] Creare `lib/supabase/client.ts` (browser client)
-- [ ] Creare `lib/supabase/server.ts` (server client per Server Components)
-- [ ] Creare `middleware.ts` per refresh sessione Supabase
-- [ ] Creare `.env.local` con variabili (non committare) e `.env.example` (committare)
+- [x] Inizializzare progetto Next.js 14 con TypeScript: `npx create-next-app@latest civichero --typescript --tailwind --eslint --app`
+- [x] Installare dipendenze: `phaser`, `@supabase/supabase-js`, `@supabase/ssr`, `resend`, `howler`, `zustand`, `zod`, `react-hook-form`, `@hookform/resolvers`
+- [x] Installare shadcn/ui e componenti base: `button`, `input`, `label`, `card`, `dialog`, `badge`, `avatar`, `table`, `dropdown-menu`
+- [x] Configurare Tailwind CSS (colori brand CivicHero: blu istituzionale #003087, accento giallo #FFD700)
+- [x] Creare `lib/supabase/client.ts` (browser client)
+- [x] Creare `lib/supabase/server.ts` (server client per Server Components)
+- [x] Creare `middleware.ts` per refresh sessione Supabase
+- [x] Creare `.env.local` con variabili (non committare) e `.env.example` (committare)
 - [ ] Creare progetto Supabase su supabase.com
-- [ ] Eseguire migration `0001_initial_schema.sql` (tabelle: profiles, levels, scores, badges, user_badges, view leaderboard_view, RLS policies)
-- [ ] Eseguire seed livelli e badge in Supabase
+- [x] Eseguire migration `0001_initial_schema.sql` (tabelle: profiles, levels, scores, badges, user_badges, view leaderboard_view, RLS policies)
+- [x] Eseguire seed livelli e badge in Supabase
 - [ ] Creare repository GitHub e collegare a Vercel
 - [ ] Configurare variabili d'ambiente su Vercel
 - [ ] Verificare deploy preview funzionante
@@ -303,7 +303,7 @@ NEXT_PUBLIC_ADMIN_EMAIL=            # Email account admin iniziale
 
 | Fase | Obiettivo | Stato | Note |
 |---|---|---|---|
-| Phase 0 | Setup progetto | `[ ]` | — |
+| Phase 0 | Setup progetto | `[~]` | Supabase project + Vercel deploy da configurare manualmente |
 | Phase 1 | Autenticazione | `[ ]` | Dipende da Phase 0 |
 | Phase 2 | Integrazione Phaser.js | `[ ]` | Dipende da Phase 1 |
 | Phase 3 | Tutorial Level | `[ ]` | Dipende da Phase 2 |
