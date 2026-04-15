@@ -97,14 +97,14 @@ NEXT_PUBLIC_ADMIN_EMAIL=            # Email account admin iniziale
 
 ### Task
 
-- [ ] Creare pagina `/login` con form email + password (React Hook Form + Zod)
-- [ ] Creare pagina `/register` con form email + password + username (validazione unicità username via Supabase)
-- [ ] Creare trigger Supabase per creare automaticamente il record in `profiles` al signup
+- [x] Creare pagina `/login` con form email + password (React Hook Form + Zod)
+- [x] Creare pagina `/register` con form email + password + username (validazione unicità username via Supabase)
+- [x] Creare trigger Supabase per creare automaticamente il record in `profiles` al signup (migration 0002 + server action come approccio principale)
 - [ ] Creare pagina `/reset-password` (invio email reset)
 - [ ] Creare pagina `/reset-password/confirm` (inserimento nuova password con token URL)
-- [ ] Implementare logout (pulsante in header)
-- [ ] Creare hook `useAuth` per stato utente globale
-- [ ] Proteggere le route `/game/[levelId]` (livelli 1-5) con redirect al login se non autenticato
+- [x] Implementare logout (pulsante in header/dashboard)
+- [x] Creare hook `useAuth` per stato utente globale
+- [x] Proteggere le route `/game/[levelId]` (livelli 1-5) con redirect al login se non autenticato
 - [ ] Implementare guest mode: tutorial accessibile senza login, modal di invito registrazione al termine
 - [ ] Aggiungere email di conferma registrazione via Resend (template `WelcomeEmail`)
 - [ ] Testare flusso completo: signup → conferma email → login → logout → reset password
