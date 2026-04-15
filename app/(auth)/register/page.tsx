@@ -34,11 +34,7 @@ export default function RegisterPage() {
     setServerError(null);
     setIsLoading(true);
     try {
-      const formData = new FormData();
-      formData.append("email", values.email);
-      formData.append("password", values.password);
-      formData.append("username", values.username);
-      const result = await registerAction(formData);
+      const result = await registerAction(values.email, values.password, values.username);
       if (result?.error) {
         setServerError(result.error);
       }
@@ -63,9 +59,7 @@ export default function RegisterPage() {
         )}
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           <div className="space-y-2">
-            <Label htmlFor="username" className="text-blue-100">
-              Username
-            </Label>
+            <Label htmlFor="username" className="text-blue-100">Username</Label>
             <Input
               id="username"
               type="text"
@@ -77,14 +71,10 @@ export default function RegisterPage() {
             {errors.username && (
               <p className="text-red-300 text-sm">{errors.username.message}</p>
             )}
-            <p className="text-blue-300 text-xs">
-              3–20 caratteri, solo lettere, numeri e underscore
-            </p>
+            <p className="text-blue-300 text-xs">3–20 caratteri, solo lettere, numeri e underscore</p>
           </div>
           <div className="space-y-2">
-            <Label htmlFor="email" className="text-blue-100">
-              Email
-            </Label>
+            <Label htmlFor="email" className="text-blue-100">Email</Label>
             <Input
               id="email"
               type="email"
@@ -98,9 +88,7 @@ export default function RegisterPage() {
             )}
           </div>
           <div className="space-y-2">
-            <Label htmlFor="password" className="text-blue-100">
-              Password
-            </Label>
+            <Label htmlFor="password" className="text-blue-100">Password</Label>
             <Input
               id="password"
               type="password"
