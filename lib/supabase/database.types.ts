@@ -40,6 +40,7 @@ export type Database = {
           created_at?: string;
           updated_at?: string;
         };
+        Relationships: [];
       };
       levels: {
         Row: {
@@ -66,6 +67,7 @@ export type Database = {
           order_index?: number;
           is_active?: boolean;
         };
+        Relationships: [];
       };
       scores: {
         Row: {
@@ -95,6 +97,7 @@ export type Database = {
           quiz_bonus?: number;
           completed_at?: string;
         };
+        Relationships: [];
       };
       badges: {
         Row: {
@@ -121,6 +124,7 @@ export type Database = {
           condition_type?: string;
           condition_value?: Json;
         };
+        Relationships: [];
       };
       user_badges: {
         Row: {
@@ -141,6 +145,7 @@ export type Database = {
           badge_id?: string;
           earned_at?: string;
         };
+        Relationships: [];
       };
     };
     Views: {
@@ -153,9 +158,11 @@ export type Database = {
           levels_completed: number;
           rank: number;
         };
+        Relationships: [];
       };
     };
     Functions: Record<string, never>;
     Enums: Record<string, never>;
+    CompositeTypes: Record<string, never>;
   };
 };
