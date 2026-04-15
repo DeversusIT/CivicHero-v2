@@ -3,15 +3,15 @@
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
-import { loginSchema, registerSchema } from "@/lib/validations/auth";
+import {
+  loginSchema,
+  registerSchema,
+  type LoginFormValues,
+  type RegisterFormValues,
+} from "@/lib/validations/auth";
 
-export async function login(formData: FormData) {
-  const raw = {
-    email: formData.get("email") as string,
-    password: formData.get("password") as string,
-  };
-
-  const parsed = loginSchema.safeParse(raw);
+export async function login(data: LoginFormValues) {
+  const parsed = loginSchema.safeParse(data);
   if (!parsed.success) {
     return { error: parsed.error.issues[0].message };
   }
@@ -32,14 +32,8 @@ export async function login(formData: FormData) {
   redirect("/dashboard");
 }
 
-export async function register(formData: FormData) {
-  const raw = {
-    email: formData.get("email") as string,
-    password: formData.get("password") as string,
-    username: formData.get("username") as string,
-  };
-
-  const parsed = registerSchema.safeParse(raw);
+export async function register(data: RegisterFormValues) {
+  const parsed = registerSchema.safeParse(data);
   if (!parsed.success) {
     return { error: parsed.error.issues[0].message };
   }

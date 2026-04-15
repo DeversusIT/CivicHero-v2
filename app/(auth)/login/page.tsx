@@ -38,10 +38,7 @@ function LoginForm() {
     setServerError(null);
     setIsLoading(true);
     try {
-      const formData = new FormData();
-      formData.set("email", values.email);
-      formData.set("password", values.password);
-      const result = await login(formData);
+      const result = await login(values);
       if (result?.error) {
         setServerError(result.error);
       }
